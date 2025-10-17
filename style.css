@@ -46,13 +46,19 @@
         }
 
 
-        nav ul li img {
+        nav div li img {
             width: 40px;
             height: 40px;
-            border-radius: 50%;
+            border-radius: 20%;
             object-fit: cover;
         }
-/*Header*/
+        .menu-toggle {
+        display: none;
+        font-size: 2rem;
+        cursor: pointer;
+        }
+
+        /*Header*/
         .header {
             position: relative;
             background: #000000de ;
@@ -62,88 +68,62 @@
 
 
         /* Contenu du header */
-        .header-content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 100px 80px;
-            gap: 50px;
-        }
+    .header-content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 100px 80px;
+        gap: 50px;
+    }
 
-        .text {
-            flex: 1;
-            color: white;
-        }
+    .text {
+        flex: 1;
+        color: white;
+    }
 
-        .text h3 {
-            font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-        }
+    .text h3 {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+    }
 
-        .text h1 {
-            font-size: 32px;
-            font-weight: 300;
-            margin-bottom: 20px;
-        }
+    .text h1 {
+        font-size: 32px;
+        font-weight: 300;
+        margin-bottom: 20px;
+    }
 
-        .text h1 .logo {
-            font-weight: bold;
-            font-family: "Brush Script MT", cursive;
+    .text h1 .logo {
+        font-weight: bold;
+        font-family: "Brush Script MT", cursive;
 
-        }
+    }
 
-        .text p {
-            font-size: 16px;
-            line-height: 1.6;
-            opacity: 0.9;
-            max-width: 600px;
-        }
+    .text p {
+        font-size: 16px;
+        line-height: 1.6;
+        opacity: 0.9;
+        max-width: 600px;
+    }
 
-        .image {
-            flex-shrink: 0;
-        }
+    .image {
+        flex-shrink: 0;
+    }
 
-        .image img {
-            max-width: 400px;
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+    .image img {
+        max-width: 400px;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
 
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                padding: 20px;
-            }
-
-            nav ul {
-                margin-top: 20px;
-                gap: 15px;
-            }
-
-            .header-content {
-                flex-direction: column;
-                padding: 100px 30px;
-                text-align: center;
-            }
-
-            .text h3 {
-                font-size: 18px;
-            }
-
-            .text h1 {
-                font-size: 24px;
-            }
-
-            .image img {
-                max-width: 300px;
-            }
-        }
+       /* @media (max-width: 768px) {
+           
+        }*/
 
 
     div ul{
@@ -182,6 +162,121 @@
 
     .contact{
         background-color: black;
-            font-size: 10em;
-            font-family: 'Bebas Neue', sans-serif;
+        font-size: 10em;
+        font-family: 'Bebas Neue', sans-serif;
     }
+
+    /*Responsive tablette*/
+    @media(min-width:768px) and (max-width:991.98px){
+            
+            .header-content {
+                flex-direction: column;
+                padding: 20px 30px;
+                text-align: center;
+            }
+            
+            .text h3 {
+                font-size: 18px;
+            }
+
+            .text h1 {
+                font-size: 24px;
+            }
+
+            .image img {
+                max-width: 300px;
+            }
+            .img_about{
+                width: 100em;
+            }
+            .p_texte{
+                width: 15em;
+             }
+             .div_contact{
+                display: flex;
+                flex-wrap: wrap;
+             }
+
+             
+    }
+
+    
+    /*Responsivité mobile*/
+@media (max-width:575.98px){
+    nav{
+      flex-direction: column;
+    }
+    .header{
+        height: 50em ;
+    }
+    .header-content{
+        flex-direction: column;
+    }
+    .div{
+        flex-direction: column;
+        align-items: center;
+    }
+
+   .p_texte{
+       width: 1em;
+
+   }
+   .p_texte{
+       width: 80%;
+       margin: 1em auto;
+      text-align: center;
+   }
+   .about{
+        flex-direction: column;
+    }
+    .img_about{
+        width: 21em;
+    }
+    .about p{
+       font-size: 5em;
+    }
+    .div_about{
+        flex-direction: column;
+    }
+
+     .div_about p{
+        width: 22em;
+    }
+    .contact {
+         font-size: 6em;
+    }
+
+    .div_contact{
+        flex-direction: column;
+        align-items: center;
+    }
+    .div_contact img{
+        max-width: 23em;
+    }
+    .div_contact p{
+        margin-left: 1em;
+    }
+/*
+
+   .nav-links {
+    display: none; /* cacher le menu par défaut 
+    flex-direction: column;
+    background-color: #fff;
+    color: white;
+    position: absolute;
+    top: 60px;
+    right: 40px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  .nav-links.active {
+    display: flex; /* afficher au clic 
+  }
+
+  .menu-toggle {
+    display: block; /* afficher les 3 barres 
+  }
+*/
+}
