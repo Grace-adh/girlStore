@@ -9,6 +9,7 @@
 <body class="bg-light">
   <div class="container my-5">
     <h1 class="text-center mb-4">🛍️ Votre panier</h1>
+   <button><a href="index.html" class="text-decoration-none text-dark">Retour</a></button> 
 
     <div class="table-responsive">
       <table class="table table-bordered align-middle text-center">
@@ -34,87 +35,6 @@
     </div>
   </div>
 
-<script >
-    // Récupérer le panier depuis localStorage
-          let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-          const cartBody = document.getElementById("cart-body");
-          const grandTotalEl = document.getElementById("grand-total");
-
-          // Fonction pour afficher le panier
-          function displayCart() {
-              cartBody.innerHTML = "";
-              let grandTotal = 0;
-
-              cart.forEach((item, index) => {
-              const total = item.price * item.quantity;
-              grandTotal += total;
-
-              const row = document.createElement("tr");
-              row.innerHTML = `
-                <td><img src="${item.image}" alt="${item.name}" width="60" /> <br> ${item.name}</td>
-                <td>${item.price} €</td>
-                <td>
-                  <input type="number" min="1" value="${item.quantity}" class="form-control quantity-input" data-index="${index}">
-                </td>
-                <td>${total.toFixed(2)} €</td>
-                <td>
-                  <button class="btn btn-sm btn-danger btn-remove" data-index="${index}">Supprimer</button>
-                </td>
-              `;
-              cartBody.appendChild(row);
-              });
-
-              grandTotalEl.textContent = grandTotal.toFixed(2);
-
-              attachEvents(); // relier les inputs et boutons
-          }
-
-          // Mettre à jour la quantité
-          function attachEvents() {
-              document.querySelectorAll(".quantity-input").forEach(input => {
-                  input.addEventListener("change", e => {
-                    const idx = e.target.dataset.index;
-                    let qty = parseInt(e.target.value);
-                    if (qty < 1) qty = 1;
-                    cart[idx].quantity = qty;
-                    localStorage.setItem("cart", JSON.stringify(cart));
-                    displayCart();
-                  });
-              });
-x
-              document.querySelectorAll(".btn-remove").forEach(btn => {
-                    btn.addEventListener("click", e => {
-                      const idx = e.target.dataset.index;
-                      cart.splice(idx, 1);
-                      localStorage.setItem("cart", JSON.stringify(cart));
-                      displayCart();
-                    });
-              });
-          }
-
-          // Vider le panier
-          document.getElementById("btn-clear").addEventListener("click", () => {
-          cart = [];
-          localStorage.removeItem("cart");
-          displayCart();
-          });
-
-          // Simuler le paiement
-          document.getElementById("btn-pay").addEventListener("click", () => {
-          if(cart.length === 0){
-          alert("Votre panier est vide 😢");
-          return;
-          }
-          alert(`Merci pour votre achat ! Total payé : ${grandTotalEl.textContent} €`);
-          cart = [];
-          localStorage.removeItem("cart");
-          displayCart();
-          });
-
-// Affichage initial
-  displayCart();
-
-  </script>
+  <script src="index.js"></script>
 </body>
 </html>
